@@ -65,7 +65,15 @@
         android:id="@+id/deeplink_dest"
         android:name="org.inu.navigation.DeepLinkFragment"
         android:label="@string/deeplink"
-        tools:layout="@layout/fragment_deep_link" />
+        tools:layout="@layout/fragment_deep_link" >
+
+        <argument
+            android:name="myarg"
+            android:defaultValue="Android!"/>
+
+        <deepLink app:uri="www.example.com/{myarg}" />
+
+    </fragment>
 
 
 </navigation>
