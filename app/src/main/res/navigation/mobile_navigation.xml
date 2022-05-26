@@ -9,27 +9,33 @@
         android:id="@+id/home_dest"
         android:name="org.inu.navigation.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/next_action"
+            app:destination="@id/flow_step_one_dest"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/flow_step_one_dest" />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/flow_step_one_dest"
         android:name="org.inu.navigation.FlowStepFragment"
-        tools:layout="@layout/fragment_flow_step_one" >
+        tools:layout="@layout/fragment_flow_step_one">
+
+        <argument
+            android:name="flowStepNumber"
+            android:defaultValue="1"
+            app:argType="integer" />
+
         <action
             android:id="@+id/next_action"
+            app:destination="@id/flow_step_two_dest"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:destination="@id/flow_step_two_dest" />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 
@@ -37,6 +43,12 @@
         android:id="@+id/flow_step_two_dest"
         android:name="org.inu.navigation.FlowStepFragment"
         tools:layout="@layout/fragment_flow_step_two">
+
+        <argument
+            android:name="flowStepNumber"
+            app:argType="integer"
+            android:defaultValue="2"/>
+
         <action
             android:id="@+id/next_action"
             app:popUpTo="@id/home_dest" />
@@ -53,8 +65,7 @@
         android:id="@+id/deeplink_dest"
         android:name="org.inu.navigation.DeepLinkFragment"
         android:label="@string/deeplink"
-        tools:layout="@layout/fragment_deep_link"/>
-
+        tools:layout="@layout/fragment_deep_link" />
 
 
 </navigation>
